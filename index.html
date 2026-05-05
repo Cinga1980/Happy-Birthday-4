@@ -1,1 +1,116 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>İyi ki Doğdun Anne ❤️</title>
 
+<style>
+body {
+    margin:0;
+    font-family: Arial;
+    overflow:hidden;
+}
+
+.bg {
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:url("FOTO_LINK") center/cover no-repeat;
+    filter: blur(8px);
+    z-index:-1;
+}
+
+.card {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:rgba(0,0,0,0.7);
+    padding:25px;
+    border-radius:20px;
+    color:white;
+    text-align:center;
+    width:85%;
+    max-width:350px;
+    animation:fade 0.6s;
+}
+
+button {
+    padding:12px 20px;
+    border:none;
+    border-radius:10px;
+    margin-top:15px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+@keyframes fade {
+    from {opacity:0; transform:translate(-50%,-40%);}
+    to {opacity:1; transform:translate(-50%,-50%);}
+}
+
+.hidden { display:none; }
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<audio id="music" src="MUZIK_LINK"></audio>
+
+<!-- 1 -->
+<div class="card" id="start">
+    <h2>İyi ki doğdun anne ❤️</h2>
+    <p>5 Mayıs</p>
+    <button onclick="next('cake')">Başla</button>
+</div>
+
+<!-- 2 -->
+<div class="card hidden" id="cake">
+    <h3>Bir dilek tut 🎂</h3>
+    <button onclick="next('gift')">Mumu Üfle</button>
+</div>
+
+<!-- 3 -->
+<div class="card hidden" id="gift">
+    <h3>Sürpriz 🎁</h3>
+    <button onclick="next('content')">Kutuyu Aç</button>
+</div>
+
+<!-- 4 -->
+<div class="card hidden" id="content">
+    <h3>Senin için küçük şeyler</h3>
+    <p>❤️ Sınırsız sarılma</p>
+    <p>☕ Birlikte çay günü</p>
+    <p>💬 Uzun sohbet</p>
+
+    <h4>Anı</h4>
+    <p>BURAYA_ANIN</p>
+
+    <button onclick="next('scam')">Son Sürpriz 😄</button>
+</div>
+
+<!-- 5 -->
+<div class="card hidden" id="scam">
+    <h3>🎉 999 Trilyon TL + 300 Villa Kazandın!</h3>
+    <button onclick="next('warning')">Tıkla</button>
+</div>
+
+<!-- 6 -->
+<div class="card hidden" id="warning">
+    <h2>😄 Yakaladım!</h2>
+    <p>Anneee ben yokken böyle şeylere kanma tamam mı ❤️</p>
+</div>
+
+<script>
+function next(id){
+    document.querySelectorAll('.card').forEach(c=>c.classList.add('hidden'));
+    document.getElementById(id).classList.remove('hidden');
+    document.getElementById("music").play();
+}
+</script>
+
+</body>
+</html>
